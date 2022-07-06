@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #page {
+            max-width: 400px;
+            min-height: 1000px;
+            background-color: black;
+            margin: auto;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #menu {
+            height: 50px;
+            background-color: azure;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+        }
+        #reserva{
+            position: absolute;
+            background-color: red;
+            height: 250px;
+            padding: 20px 0;
+            top: 50%;
+            right: 0px;
+        }
+       
+        #reserva .content {
+            background-color: white;
+            position: absolute;
+            z-index: 3;
+            border: 1px solid red;
+            height: 100%;
+
+        }
+
+        #reserva>.content>label{
+            display: block;
+            margin: 5px;
+            padding: 15px 0;
+            z-index: 5;
+            position: relative;
+        }
+
+        #button{
+            position: absolute;
+            display: block;
+            transform: rotate(270deg);
+            background-color: white;
+            width: 70px;
+            height: 70px;
+            line-height: 35px;
+            text-align: center;
+            z-index: 2;
+            border: 1px solid red;
+            border-radius: 50%;
+            top: calc(50% - 35px);
+            left: -35px;
+            cursor:pointer;
+        }
+        
+       
+
+
+        #reserva_btn:checked + div{
+            animation-name: reserva;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            
+        }
+
+        
+
+        @keyframes reserva {
+            0%{
+                right: 0px;
+            }
+
+            50%{
+                right: 100px;
+            }
+
+            100%{
+                right: 190px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <div id="menu">topo</div>
+        <input type="checkbox" style="display:none;" id="reserva_btn">
+        <div id="reserva">
+            <label for="reserva_btn" id="button">
+                reserva
+            </label>
+            <div class="content">
+                <form action="">
+                    <label for="">
+                        Entrada
+                        <input type="date">
+                    </label>
+                    <label for="">
+                        Saída
+                        <input type="date">
+                    </label>
+                    <label for="">
+                        Adultos:
+                        <input type="number" value="2">
+                    </label>
+                    <label for="">
+                        Crianças:
+                        <input type="number" value="0">
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
